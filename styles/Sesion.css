@@ -82,3 +82,33 @@
 .bd-mode-toggle .dropdown-menu .active .bi {
     display: block !important;
 }
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::*/
+footer {
+  width: 100%;
+  max-width: 1200px; /* Ancho máximo del footer */
+  margin: 0 auto; /* Centra el footer en la página */
+  padding: 20px 0; /* Agrega un poco de relleno en la parte superior e inferior */
+  text-align: center; /* Centra el texto y el contenido */
+}
+
+footer .social-icons {
+  display: flex;
+  justify-content: center;  /* Centra los íconos */
+  gap: 15px;  /* Espacio entre los iconos */
+  margin-top: 10px;  /* Espacio por encima de los íconos */
+}
+
+footer .social-icons a {
+  display: inline-block;
+}
+
+footer .icon {
+  width: 24px;
+  height: 24px;
+  fill: #000;  /* Color de los iconos */
+  transition: fill 0.3s ease;
+}
+
+footer .social-icons a:hover .icon {
+  fill: #007bff;  /* Cambiar el color al pasar el mouse */
+}
