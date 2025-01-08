@@ -1,0 +1,101 @@
+/* Estilos para que el slider cubra toda la pantalla */
+.carousel-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slide {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-slide.active {
+    display: flex;
+}
+
+.carousel-slide:nth-child(1) {
+    background-color: #3498db;
+}
+
+.carousel-slide:nth-child(2) {
+    background-color: #e74c3c;
+}
+
+.carousel-slide:nth-child(3) {
+    background-color: #2ecc71;
+}
+
+/* Estilos para los botones de navegación */
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#prev-slide {
+    left: 20px;
+}
+
+#next-slide {
+    right: 20px;
+}
+
+/* Ocultar texto en los botones y usar flechas */
+.nav-button::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+#prev-slide::before {
+    border-width: 15px 20px 15px 0;
+    border-color: transparent white transparent transparent;
+}
+
+#next-slide::before {
+    border-width: 15px 0 15px 20px;
+    border-color: transparent transparent transparent white;
+}
+
+/* Formularios */
+.custom-form-container {
+    position: absolute;
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+}
+
+.hidden {
+    display: none;
+}

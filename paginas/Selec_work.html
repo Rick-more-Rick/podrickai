@@ -133,70 +133,64 @@
     <main>
         <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
         <!--::::::::::::::  ANUNCIOS (FUNCIONES)  :::::::::::::::::::::::::::-->
-        <div id="myCarousel" class="carousel slide mb-md-0" data-bs-ride="carousel">
-            <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
-            <!--::::::::::::::  ANUNCIOS (FLECHAS)  :::::::::::::::::::::::::::-->
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <div class="custom-carousel">
+            <!-- Primera diapositiva -->
+            <div class="carousel-slide active" id="slide1">
+                <h1 class="slide-title">Convierte cualquier PDF</h1>
+                <p class="slide-description">Puedes convertir cualquier documento PDF con un máximo de 500 hojas.</p>
+                <button class="custom-button" data-form="form1">Prueba Gratis</button>
             </div>
-            <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
-            <!--::::::::::::::  ANUNCIOS (IMAGENES)  :::::::::::::::::::::::::::-->
-            <div class="carousel-inner">
-                <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
-                <!--::::::::::::::  ANUNCIOS (IMAGENES 1)  :::::::::::::::::::::::::::-->
-                <div class="carousel-item active">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-                    <div class="container">
-                        <div class="carousel-caption text-start">
-                            <h1>CONVIERTE CUALQUIER PDF.</h1>
-                            <p class="opacity-75">PUEDES CONVERTIR CUALQUIER CODUMENTO PDF CON UN MAXIMO DE 500 HOJAS.</p>
-                            <p>
-                                <a class="btn btn-lg btn-primary" href="../paginas/sign_in.html">PRUEBA GRATIS</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
-                <!--::::::::::::::  ANUNCIOS (IMAGENES 2)  :::::::::::::::::::::::::::-->
-                <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-                <div class="container">
-                    <div class="carousel-caption">
-                    <h1>CONVIERTE CUALQUIER URL.</h1>
-                    <p>SOLO COPIA Y PEGA LA LIGA QUE QUIERE GENERAR.</p>
-                    <p><a class="btn btn-lg btn-primary" href="../paginas/sign_in.html">PRUEBA GRATIS</a></p>
-                    </div>
-                </div>
-                </div>
-                <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
-                <!--::::::::::::::  ANUNCIOS (IMAGENES 3) :::::::::::::::::::::::::::-->
-                <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-                    <div class="container">
-                        <div class="carousel-caption text-end">
-                            <h1>ESCRIBE CUALQUIER TEMA.</h1>
-                            <p>ESCRIBE CUALQUIER TEMA QUE QUIERAS Y DEJA QUE NUESTRA IA GERETE UN PODCAST PARA TI.</p>
-                            <p>
-                                <a class="btn btn-lg btn-primary" href="../paginas/sign_in.html">PRUEBA GRATIS</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <!-- Segunda diapositiva -->
+            <div class="carousel-slide" id="slide2">
+                <h1 class="slide-title">Convierte cualquier URL</h1>
+                <p class="slide-description">Copia y pega la liga que quieres generar.</p>
+                <button class="custom-button" data-form="form2">Prueba Gratis</button>
             </div>
-            <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
-            <!--::::::::::::::  ANUNCIOS (BOTONES)  :::::::::::::::::::::::::::-->
-            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
-            <!--::::::::::::::  ANUNCIOS (BOTONES DEBAJO)  :::::::::::::::::::::::::::-->
-            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <!-- Tercera diapositiva -->
+            <div class="carousel-slide" id="slide3">
+                <h1 class="slide-title">Escribe cualquier tema</h1>
+                <p class="slide-description">Deja que nuestra IA genere un podcast para ti.</p>
+                <button class="custom-button" data-form="form3">Prueba Gratis</button>
+            </div>
+            <!-- Botones de navegación -->
+            <div class="carousel-controls">
+                <button id="prev-slide" class="carousel-control">Anterior</button>
+                <button id="next-slide" class="carousel-control">Siguiente</button>
+            </div>
+        </div>
+    
+        <!-- Formularios -->
+        <div id="form1" class="custom-form-container hidden">
+            <form>
+                <h2>Formulario 1</h2>
+                <label for="email1">Email:</label>
+                <input type="email" id="email1" class="custom-input" placeholder="Ingresa tu email">
+                <label for="password1">Contraseña:</label>
+                <input type="password" id="password1" class="custom-input" placeholder="Ingresa tu contraseña">
+                <button type="submit" class="custom-submit">Enviar</button>
+            </form>
+        </div>
+    
+        <div id="form2" class="custom-form-container hidden">
+            <form>
+                <h2>Formulario 2</h2>
+                <label for="email2">Email:</label>
+                <input type="email" id="email2" class="custom-input" placeholder="Ingresa tu email">
+                <label for="url">URL:</label>
+                <input type="url" id="url" class="custom-input" placeholder="Ingresa la URL">
+                <button type="submit" class="custom-submit">Enviar</button>
+            </form>
+        </div>
+    
+        <div id="form3" class="custom-form-container hidden">
+            <form>
+                <h2>Formulario 3</h2>
+                <label for="email3">Email:</label>
+                <input type="email" id="email3" class="custom-input" placeholder="Ingresa tu email">
+                <label for="topic">Tema:</label>
+                <input type="text" id="topic" class="custom-input" placeholder="Escribe un tema">
+                <button type="submit" class="custom-submit">Enviar</button>
+            </form>
         </div>
         <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
         <!--::::::::::::::  CONTENIDO  :::::::::::::::::::::::::::-->
@@ -232,5 +226,6 @@
         
     </main>
     <script src="../logica/generaLogic.js"></script>
+    <script src="../logica/Selec_trab.js"></script>
 </body>
 </html>
