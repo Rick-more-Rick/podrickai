@@ -134,43 +134,40 @@
         <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
         <!--::::::::::::::  ANUNCIOS (FUNCIONES)  :::::::::::::::::::::::::::-->
         <div class="custom-carousel">
-            <!-- Primera diapositiva -->
+            <!-- Primera diapositiva PDF -->
             <div class="carousel-slide active" id="slide1">
                 <h1 class="slide-title">Convierte cualquier PDF</h1>
                 <p class="slide-description">Puedes convertir cualquier documento PDF con un máximo de 500 hojas.</p>
-                <button class="custom-button" data-form="form1">Prueba Gratis</button>
+                <button class="custom-button" data-form="form1">Seleccionar Archivo</button>
             </div>
-            <!-- Segunda diapositiva -->
+            <!-- Segunda diapositiva URL -->
             <div class="carousel-slide" id="slide2">
                 <h1 class="slide-title">Convierte cualquier URL</h1>
                 <p class="slide-description">Copia y pega la liga que quieres generar.</p>
-                <button class="custom-button" data-form="form2">Prueba Gratis</button>
+                <button class="custom-button" data-form="form2">Comencemos</button>
             </div>
             <!-- Tercera diapositiva -->
             <div class="carousel-slide" id="slide3">
                 <h1 class="slide-title">Escribe cualquier tema</h1>
                 <p class="slide-description">Deja que nuestra IA genere un podcast para ti.</p>
-                <button class="custom-button" data-form="form3">Prueba Gratis</button>
+                <button class="custom-button" data-form="form3">Cuentame de que quieres que hablemos hoy</button>
             </div>
             <!-- Botones de navegación -->
-            <div class="carousel-controls">
-                <button id="prev-slide" class="carousel-control">Anterior</button>
-                <button id="next-slide" class="carousel-control">Siguiente</button>
-            </div>
+            <button id="prev-slide" class="carousel-control prev-control"><i class="fas fa-chevron-left"></i></button>
+            <button id="next-slide" class="carousel-control next-control"><i class="fas fa-chevron-right"></i></button>
         </div>
-    
+        
         <!-- Formularios -->
         <div id="form1" class="custom-form-container hidden">
-            <form>
-                <h2>Formulario 1</h2>
-                <label for="email1">Email:</label>
-                <input type="email" id="email1" class="custom-input" placeholder="Ingresa tu email">
-                <label for="password1">Contraseña:</label>
-                <input type="password" id="password1" class="custom-input" placeholder="Ingresa tu contraseña">
-                <button type="submit" class="custom-submit">Enviar</button>
+            <h2 class="form-title">Convierte cualquier PDF</h2>
+            <p class="form-description">Sube tu archivo PDF y conviértelo fácilmente al formato que necesitas.</p>
+            <form id="pdfForm">
+                <label for="pdfFile" class="custom-label">Selecciona un archivo PDF:</label>
+                <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" class="custom-file-input">
+                <button type="submit" class="custom-submit">Convertir PDF</button>
             </form>
-        </div>
-    
+        </div>                
+        
         <div id="form2" class="custom-form-container hidden">
             <form>
                 <h2>Formulario 2</h2>
@@ -181,7 +178,7 @@
                 <button type="submit" class="custom-submit">Enviar</button>
             </form>
         </div>
-    
+        
         <div id="form3" class="custom-form-container hidden">
             <form>
                 <h2>Formulario 3</h2>
@@ -192,6 +189,7 @@
                 <button type="submit" class="custom-submit">Enviar</button>
             </form>
         </div>
+        
         <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
         <!--::::::::::::::  CONTENIDO  :::::::::::::::::::::::::::-->
         <!-- FOOTER -->

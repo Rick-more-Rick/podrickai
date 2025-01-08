@@ -83,6 +83,10 @@ body {
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: rgb(var(--bs-tertiary-color-rgb));
+  /**/
+  display: flex;
+  flex-direction: column; /* Disposición en columna para que el contenido empuje al footer */
+  min-height: 100%;
 }
 
 /* CUSTOMIZE THE CAROUSEL
@@ -159,18 +163,24 @@ body {
 /*::::::::::::::::::::::::::::::::::::::::::::*/
 /*::::::::::::::::::::::::::::::::::::::::::::*/
 footer {
-  width: 100%;
-  max-width: 1200px; /* Ancho máximo del footer */
-  margin: 0 auto; /* Centra el footer en la página */
-  padding: 20px 0; /* Agrega un poco de relleno en la parte superior e inferior */
-  text-align: center; /* Centra el texto y el contenido */
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  max-width: 100%; /* Elimina el límite de 1200px para mantener todo centrado */
+  margin: 0; /* Elimina cualquier margen lateral */
+  padding: 20px 0; /* Relleno en la parte superior e inferior */
+  text-align: center; /* Centra el contenido dentro del footer */
+  background-color: #f8f9fa; /* Color de fondo opcional */
+  position: fixed; /* Fija el footer en la parte inferior */
+  bottom: 0; /* Ubicación en la parte inferior de la ventana */
+  left: 0; /* Asegura que el footer esté alineado con el borde izquierdo */
+  z-index: 10; /* Asegura que esté por encima de otros elementos */
 }
 
 footer .social-icons {
   display: flex;
-  justify-content: center;  /* Centra los íconos */
-  gap: 15px;  /* Espacio entre los iconos */
-  margin-top: 10px;  /* Espacio por encima de los íconos */
+  justify-content: center; /* Centra los íconos horizontalmente */
+  align-items: center; /* Alinea los íconos verticalmente */
+  gap: 15px; /* Espacio entre los íconos */
+  margin-top: 10px; /* Espacio por encima de los íconos */
 }
 
 footer .social-icons a {
@@ -180,12 +190,10 @@ footer .social-icons a {
 footer .icon {
   width: 24px;
   height: 24px;
-  fill: #000;  /* Color de los iconos */
+  fill: #000; /* Color de los iconos */
   transition: fill 0.3s ease;
 }
 
 footer .social-icons a:hover .icon {
-  fill: #007bff;  /* Cambiar el color al pasar el mouse */
+  fill: #007bff; /* Cambiar el color al pasar el mouse */
 }
-/*::::::::::::::::::::::::::::::::::::::::::::*/
-/*::::::::::::::::::::::::::::::::::::::::::::*/

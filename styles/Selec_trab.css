@@ -1,101 +1,183 @@
-/* Estilos para que el slider cubra toda la pantalla */
-.carousel-container {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+body {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+}
+/* Hacer que los sliders cubran toda la pantalla */
+.custom-carousel {
+    width: 100vw;
     position: relative;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out;
 }
+/* Clase que sube el carousel un 20% */
 
+/**/
 .carousel-slide {
-    width: 100%;
-    height: 100%;
     display: none;
+    text-align: center;
     position: absolute;
-    top: 0;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-position: center;
-}
-
-.carousel-slide.active {
-    display: flex;
-}
-
-.carousel-slide:nth-child(1) {
-    background-color: #3498db;
-}
-
-.carousel-slide:nth-child(2) {
-    background-color: #e74c3c;
-}
-
-.carousel-slide:nth-child(3) {
-    background-color: #2ecc71;
-}
-
-/* Estilos para los botones de navegación */
-.nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: white;
-    font-size: 2rem;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 10;
-}
-
-#prev-slide {
-    left: 20px;
-}
-
-#next-slide {
-    right: 20px;
-}
-
-/* Ocultar texto en los botones y usar flechas */
-.nav-button::before {
-    content: '';
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-style: solid;
-}
-
-#prev-slide::before {
-    border-width: 15px 20px 15px 0;
-    border-color: transparent white transparent transparent;
-}
-
-#next-slide::before {
-    border-width: 15px 0 15px 20px;
-    border-color: transparent transparent transparent white;
-}
-
-/* Formularios */
-.custom-form-container {
-    position: absolute;
-    width: 80%;
-    max-width: 400px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 20;
+    color: white;
+    font-size: 2rem;
+    width: 100%;
+    height: 100%;
+    background-color: #007bff; /* Color de fondo de cada slide */
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.custom-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-form-container {
+    margin-top: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .hidden {
     display: none;
+}
+
+/* Botones de navegación a los lados con flechas */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 2rem;
+}
+
+.prev-control {
+    left: 10px;
+}
+
+.next-control {
+    right: 10px;
+}
+
+.carousel-control i {
+    font-size: 2rem;
+}
+
+/* Flechas de los botones */
+.carousel-control:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333; /* Color de fondo opcional */
+  color: rgb(14, 13, 13); /* Color de texto */
+  text-align: center;
+  padding: 10px 0;
+  z-index: 1000; /* Asegura que esté encima de otros elementos */
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/* Estilos específicos para form1 */
+#form1 {
+    background: linear-gradient(135deg, #007bff, #6dd5ed);
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    margin-top: 5%;
+}
+
+/* Título del formulario */
+#form1 .form-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Descripción del formulario */
+#form1 .form-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Etiquetas */
+#form1 .custom-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    text-align: left;
+}
+
+/* Campo de archivo */
+#form1 .custom-file-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px dashed #ffffff;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+#form1 .custom-file-input:hover {
+    background: rgba(255, 255, 255, 0.4);
+    border-color: #6dd5ed;
+}
+
+/* Botón de enviar */
+#form1 .custom-submit {
+    background: #ff6f61;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#form1 .custom-submit:hover {
+    background: #e6554f;
+    transform: scale(1.05);
+}
+
+/* Responsividad */
+@media (max-width: 500px) {
+    #form1 {
+        padding: 20px;
+    }
+    #form1 .form-title {
+        font-size: 1.5rem;
+    }
+    #form1 .form-description {
+        font-size: 0.9rem;
+    }
 }
