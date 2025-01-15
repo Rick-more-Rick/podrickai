@@ -85,7 +85,7 @@
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::*/
 footer {
   width: 100%;
-  max-width: 1200px; /* Ancho máximo del footer */
+  max-width: auto; /* Ancho máximo del footer */
   margin: 0 auto; /* Centra el footer en la página */
   padding: 20px 0; /* Agrega un poco de relleno en la parte superior e inferior */
   text-align: center; /* Centra el texto y el contenido */
