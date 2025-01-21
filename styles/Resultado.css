@@ -123,18 +123,23 @@ main{
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::*/
 footer {
+  display: flex;
   border: 2px solid rebeccapurple;
   width: 100%;
   max-width: auto; /* Ancho máximo del footer */
-  text-align: center; /* Centra el texto y el contenido */
-  height: 5vh;
+  height: 2vh;
+
 }
 
+#legacy{
+  margin-left: 3%;
+}
 footer .social-icons {
+  /*border: 2px solid rebeccapurple;*/
   display: flex;
   justify-content: center;  /* Centra los íconos */
   gap: 15px;  /* Espacio entre los iconos */
-  margin-top: 10px;  /* Espacio por encima de los íconos */
+  margin-left: 65%;  /* Espacio por encima de los íconos */
 }
 
 footer .social-icons a {
