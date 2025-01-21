@@ -1,9 +1,20 @@
+*{
+  box-sizing: content-box;
+  margin: 0; /* Elimina márgenes predeterminados */
+  padding: 0;
+}
+body{
+  display:flex; /* Define un contenedor flexible */
+}
 main{
-  display: flex;
+  flex-shrink: 1;
+  overflow: hidden;
+  border: 5px solid red;
 }
 #Carra{
   border: 5px solid red;
-  height: 80vh;
+  height: 100%; /* Asegura que ocupe toda la altura del contenedor */
+  flex-shrink: 0; /* Evita que se reduzca */
 }
 .dropdown-toggle { outline: 0; }
 
@@ -82,9 +93,7 @@ main{
   .h-md-250 { height: 250px; }
 }
 
-#contenido-blog{
-  border: 5px solid red;
-}
+
 /*::::::::::::::::::::::::::::::::::::::::::::*/
 /*::::::::::::::::::::::::::::::::::::::::::::*/
 /*::::::::::::::::::::::::::::::::::::::::::::*/
