@@ -118,46 +118,46 @@
             <button id="prev-slide" class="carousel-control prev-control"><i class="fas fa-chevron-left"></i></button>
             <button id="next-slide" class="carousel-control next-control"><i class="fas fa-chevron-right"></i></button>
         </div>
-        
+    
         <!-- Formularios -->
         <div id="form1" class="custom-form-container hidden">
             <h2 class="form-title">Convierte cualquier PDF</h2>
             <p class="form-description">Sube tu archivo PDF y conviértelo fácilmente al formato que necesitas.</p>
-            <form id="pdfForm">
+            <form id="pdfForm" action="/convert_pdf" method="POST" enctype="multipart/form-data">
                 <label for="pdfFile" class="custom-label">Selecciona un archivo PDF:</label>
-                <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" class="custom-file-input">
+                <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" class="custom-file-input" required>
                 <button type="submit" class="custom-submit">Convertir PDF</button>
             </form>
-        </div>                
-        
+        </div>
+    
         <div id="form2" class="custom-form-container hidden">
-            <form>
+            <form action="/convert_url" method="POST">
                 <h2>Formulario 2</h2>
                 <label for="email2">Email:</label>
-                <input type="email" id="email2" class="custom-input" placeholder="Ingresa tu email">
+                <input type="email" id="email2" class="custom-input" placeholder="Ingresa tu email" required>
                 <label for="url">URL:</label>
-                <input type="url" id="url" class="custom-input" placeholder="Ingresa la URL">
+                <input type="url" id="url" class="custom-input" placeholder="Ingresa la URL" required>
                 <button type="submit" class="custom-submit">Enviar</button>
             </form>
         </div>
-        
+    
         <div id="form3" class="custom-form-container hidden">
-            <form>
+            <form action="/generate_podcast" method="POST">
                 <h2>Formulario 3</h2>
                 <label for="email3">Email:</label>
-                <input type="email" id="email3" class="custom-input" placeholder="Ingresa tu email">
+                <input type="email" id="email3" class="custom-input" placeholder="Ingresa tu email" required>
                 <label for="topic">Tema:</label>
-                <input type="text" id="topic" class="custom-input" placeholder="Escribe un tema">
+                <input type="text" id="topic" class="custom-input" placeholder="Escribe un tema" required>
                 <button type="submit" class="custom-submit">Enviar</button>
             </form>
         </div>
-        
+    
         <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
         <!--::::::::::::::  CONTENIDO  :::::::::::::::::::::::::::-->
         <!-- FOOTER -->
         <footer class="container">
             <p>&copy; 2017–2024 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-            
+    
             <!-- Redes sociales en el footer -->
             <div class="social-icons">
                 <a href="https://github.com" target="_blank">
@@ -179,14 +179,13 @@
                     <svg class="icon">
                         <use xlink:href="#youtube"></use>
                     </svg>
-                </a>                
-                <!-- Agrega más íconos aquí según sea necesario -->
+                </a>
             </div>
         </footer>
-        
+    
     </main>
+    
     <script src="../logica/generaLogic.js"></script>
     <script src="../logica/Selec_trab.js"></script>
-    <script src="../logica/serv_pdfProcessing.js"></script>
 </body>
 </html>
