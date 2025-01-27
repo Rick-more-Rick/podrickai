@@ -120,16 +120,17 @@
         </div>
     
         <!-- Formularios -->
+         <!-- Formulario 1 -->
         <div id="form1" class="custom-form-container hidden">
             <h2 class="form-title">Convierte cualquier PDF</h2>
             <p class="form-description">Sube tu archivo PDF y conviértelo fácilmente al formato que necesitas.</p>
-            <form id="pdfForm" action="/convert_pdf" method="POST" enctype="multipart/form-data">
+            <form id="pdfForm" action="http://127.0.0.1:5000/convert_pdf" method="POST" enctype="multipart/form-data">
                 <label for="pdfFile" class="custom-label">Selecciona un archivo PDF:</label>
                 <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" class="custom-file-input" required>
                 <button type="submit" class="custom-submit">Convertir PDF</button>
-            </form>
+            </form>            
         </div>
-    
+        <!-- Formulario 2 -->
         <div id="form2" class="custom-form-container hidden">
             <form action="/convert_url" method="POST">
                 <h2>Formulario 2</h2>
@@ -140,7 +141,7 @@
                 <button type="submit" class="custom-submit">Enviar</button>
             </form>
         </div>
-    
+        <!-- Formulario 3 -->
         <div id="form3" class="custom-form-container hidden">
             <form action="/generate_podcast" method="POST">
                 <h2>Formulario 3</h2>
@@ -184,7 +185,7 @@
         </footer>
     
     </main>
-    
+    <script src="../logica/Enlace.js"></script>
     <script src="../logica/generaLogic.js"></script>
     <script src="../logica/Selec_trab.js"></script>
 </body>
