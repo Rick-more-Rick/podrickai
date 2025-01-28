@@ -1,25 +1,25 @@
-document.getElementById('pdfForm').addEventListener('submit', function(event) {
-    event.preventDefault();  // Evita el envío del formulario de forma tradicional
+document.getElementById('convertButton').addEventListener('click', function () {
+    const form = document.getElementById('pdfForm');
+    const formData = new FormData(form);
 
-    const formData = new FormData();
-    const fileInput = document.getElementById('pdfFile');
-    
-    formData.append('pdfFile', fileInput.files[0]);
+    // Redirigir a la página de carga
+    window.location.href = 'Esperando.html';
 
-    // Enviar el archivo al servidor Flask
+    // Enviar archivo al servidor Flask
     fetch('http://127.0.0.1:5000/convert_pdf', {
         method: 'POST',
-        body: formData
+        body: formData,
     })
-    .then(response => response.blob())  // Esperamos que nos devuelvan el archivo MP3
-    .then(blob => {
-        // Crear un enlace para descargar el archivo MP3
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = 'archivo_convertido.mp3';  // Nombre del archivo descargado
-        link.click();
+    .then(response => {
+        if (response.ok) {
+            // Redirigir a la página de resultado al completar la conversión
+            window.location.href = 'resultado.html';
+        } else {
+            throw new Error('Error al convertir PDF.');
+        }
     })
     .catch(error => {
-        console.error('Error al convertir PDF:', error);
+        console.error('Error:', error);
+        alert('Hubo un problema al procesar el archivo.');
     });
 });

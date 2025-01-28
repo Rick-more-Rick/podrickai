@@ -1,10 +1,11 @@
-from flask import Flask, request, render_template, send_file
+from flask import Flask, request, render_template, redirect, url_for, session, send_file
 from gtts import gTTS
 import PyPDF2
 import os
 import time
 
 app = Flask(__name__)
+app.secret_key = 'super_secret_key'  # Necesario para usar `session`
 
 # Crear la carpeta AudioRick si no existe
 audio_folder = "AudioRick"
@@ -46,10 +47,31 @@ def convert_pdf():
         
         print(f"Archivo MP3 generado en {audio_path}")
 
-        # Enviar el archivo de audio generado
-        return send_file(audio_path, as_attachment=True)
+        # Guardar el nombre del archivo en la sesión para usarlo después
+        session['audio_file'] = audio_path
+
+        # Redirigir a la página de resultado
+        return redirect(url_for('resultado'))
 
     return 'Archivo no válido', 400
+
+# Ruta para mostrar la página de resultado
+@app.route('/resultado')
+def resultado():
+    audio_file = session.get('audio_file')
+    if not audio_file or not os.path.exists(audio_file):
+        return "Error: No se encontró el archivo de audio.", 400
+
+    return render_template('resultado.html', audio_file=audio_file)
+
+# Ruta para descargar el archivo de audio
+@app.route('/descargar_audio')
+def descargar_audio():
+    audio_file = session.get('audio_file')
+    if not audio_file or not os.path.exists(audio_file):
+        return "Error: No se encontró el archivo de audio.", 400
+
+    return send_file(audio_file, as_attachment=True)
 
 if __name__ == '__main__':
     app.run(debug=True)
