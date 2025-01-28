@@ -4,7 +4,7 @@ import PyPDF2
 import os
 import time
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="paginas")
 app.secret_key = 'super_secret_key'  # Necesario para usar `session`
 
 # Crear la carpeta AudioRick si no existe
