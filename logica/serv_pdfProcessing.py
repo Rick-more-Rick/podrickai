@@ -1,7 +1,8 @@
 import os
 import time
 import threading
-from flask import Flask, request, render_template, redirect, url_for, session, send_file
+from flask import Flask, request, render_template, redirect, url_for, send_file
+
 from gtts import gTTS
 import PyPDF2
 
@@ -16,11 +17,11 @@ app.secret_key = 'super_secret_key'
 audio_folder = os.path.join(base_dir, "AudioRick")
 pdf_folder = os.path.join(base_dir, "PDFs")
 
-if not os.path.exists(audio_folder):
-    os.makedirs(audio_folder)
+os.makedirs(audio_folder, exist_ok=True)
+os.makedirs(pdf_folder, exist_ok=True)
 
-if not os.path.exists(pdf_folder):
-    os.makedirs(pdf_folder)
+# Diccionario para almacenar los resultados por sesión
+procesos = {}
 
 # Página principal
 @app.route('/')
@@ -41,7 +42,7 @@ def process_pdf(pdf_path, session_id):
             text = ''.join([page.extract_text() or '' for page in pdf_reader.pages])
 
         if not text.strip():
-            session[f'error_{session_id}'] = "El PDF no contiene texto legible."
+            procesos[session_id] = {"error": "El PDF no contiene texto legible."}
             return
 
         # Convertir a audio
@@ -50,11 +51,11 @@ def process_pdf(pdf_path, session_id):
         audio_path = os.path.join(audio_folder, audio_file_name)
         tts.save(audio_path)
 
-        # Guardar en la sesión
-        session[f'audio_file_{session_id}'] = audio_file_name
+        # Guardar el resultado en el diccionario
+        procesos[session_id] = {"audio_file": audio_file_name}
 
     except Exception as e:
-        session[f'error_{session_id}'] = f"Error al procesar el PDF: {str(e)}"
+        procesos[session_id] = {"error": f"Error al procesar el PDF: {str(e)}"}
 
 # Subir PDF y procesarlo
 @app.route('/convert_pdf', methods=['POST'])
@@ -69,43 +70,46 @@ def convert_pdf():
 
     if file and file.filename.endswith('.pdf'):
         # Guardar el archivo en una ubicación temporal
-        pdf_path = os.path.join(pdf_folder, f"temp_{int(time.time())}.pdf")
+        session_id = str(time.time())  # ID único para la sesión
+        pdf_path = os.path.join(pdf_folder, f"temp_{session_id}.pdf")
         file.save(pdf_path)
 
-        # Crear un identificador único para la sesión
-        session_id = str(time.time())
-        session['session_id'] = session_id
+        # Guardar estado inicial en procesos
+        procesos[session_id] = {"status": "processing"}
 
         # Ejecutar en un hilo separado
         thread = threading.Thread(target=process_pdf, args=(pdf_path, session_id))
         thread.start()
 
-        return redirect(url_for('esperando'))
+        return redirect(url_for('esperando', session_id=session_id))
 
     return 'Archivo no válido', 400
 
 # Página de resultado
 @app.route('/resultado')
 def resultado():
-    session_id = session.get('session_id')
-    if not session_id:
+    session_id = request.args.get('session_id')
+    if not session_id or session_id not in procesos:
         return "Error: Sesión no encontrada.", 400
 
-    audio_file = session.get(f'audio_file_{session_id}')
-    if not audio_file:
-        error_msg = session.get(f'error_{session_id}', "Error desconocido.")
-        return f"Error: {error_msg}", 400
+    resultado = procesos.get(session_id, {})
+    
+    if "error" in resultado:
+        return f"Error: {resultado['error']}", 400
 
-    return render_template('resultado.html', audio_file=url_for('static', filename=f'AudioRick/{audio_file}'))
+    if "audio_file" in resultado:
+        return render_template('resultado.html', audio_file=url_for('static', filename=f'AudioRick/{resultado["audio_file"]}'))
+
+    return "El archivo sigue procesándose, intenta de nuevo más tarde.", 202
 
 # Descargar audio
 @app.route('/descargar_audio')
 def descargar_audio():
-    session_id = session.get('session_id')
-    if not session_id:
+    session_id = request.args.get('session_id')
+    if not session_id or session_id not in procesos:
         return "Error: Sesión no encontrada.", 400
 
-    audio_file = session.get(f'audio_file_{session_id}')
+    audio_file = procesos[session_id].get("audio_file")
     if not audio_file:
         return "Error: No se encontró el archivo de audio.", 400
 

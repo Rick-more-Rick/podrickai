@@ -10,7 +10,7 @@ document.getElementById('convertButton').addEventListener('click', function () {
     .then(response => {
         if (response.ok) {
             // Redirigir a la página de "Esperando" ya gestionada en Flask
-            window.location.href = '/esperando';
+            window.location.href = '/esperando.html';
         } else {
             throw new Error('Error al convertir PDF.');
         }
