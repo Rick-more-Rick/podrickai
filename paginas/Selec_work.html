@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../styles/Selec_trab.css">
     <link rel="stylesheet" href="../styles/generalStyles.css">
     <link rel="stylesheet" href="../styles/Estyle_Home.css">
+    <!--Libreria lotties-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
 </head>
 <body>
     <!-- CREANDO GRAFICOS-->
@@ -127,8 +129,10 @@
             <form id="pdfForm" action="http://127.0.0.1:5000/convert_pdf" method="POST" enctype="multipart/form-data">
                 <label for="pdfFile" class="custom-label">Selecciona un archivo PDF:</label>
                 <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" class="custom-file-input" required>
-                <button type="submit" class="custom-submit">Convertir PDF</button>
-            </form>            
+                <button type="submit" id="convertButton" class="custom-submit">Convertir PDF</button>
+            </form>
+            <!--::::: Cargando sistemas de conversion ::::::-->
+            <div id="animacion" style="width: 100%; height: 300px; display: none;"></div>
         </div>
         <!-- Formulario 2 -->
         <div id="form2" class="custom-form-container hidden">
