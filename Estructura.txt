@@ -1,0 +1,16 @@
+📂 Podrick.ai 
+
+│── /AudioRick (Carpeta para los audios generados)
+│── /PDFs (Carpeta para los PDFs subidos)
+│── /animations (Carpeta con animaciónes Lottie) 
+│   └── loading.json
+│── /templates
+│   └── /paginas
+│       ├── Selec_work.html (Formulario de carga)
+│       ├── esperando.html (Pantalla de carga con animación)
+│       ├── (Mas HTML'S) 
+│── /static
+│   └── /styles
+│       ├── (Los estilos CSS de las paginas)
+│   └── /logica (Carpeta con archivos js y el archivo flask)
+│       └── serv_pdfProcessing.py       

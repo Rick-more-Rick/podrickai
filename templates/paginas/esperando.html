@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Esperando Conversión</title>
+</head>
+<body>
+    <h1>Esperando Conversión del PDF</h1>
+    <p>Tu ID de sesión es: {{ session_id }}</p>
+    <div id="animacion" style="width: 100%; height: 300px;"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
+    <script>
+        const animContainer = document.getElementById('animacion');
+        const anim = lottie.loadAnimation({
+            container: animContainer,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'animations/loading.json'
+        });
+    </script>
+</body>
+</html>
